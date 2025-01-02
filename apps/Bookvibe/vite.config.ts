@@ -9,13 +9,20 @@ export default defineConfig({
   cacheDir: '../../node_modules/.vite/apps/Bookvibe',
   server: {
     port: 4200,
-    host: 'localhost',
+    host: 'localhost'
   },
   preview: {
     port: 4300,
-    host: 'localhost',
+    host: 'localhost'
   },
   plugins: [react(), nxViteTsPaths(), nxCopyAssetsPlugin(['*.md'])],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler' // or "modern"
+      }
+    }
+  },
   // Uncomment this if you are using workers.
   // worker: {
   //  plugins: [ nxViteTsPaths() ],
@@ -25,7 +32,7 @@ export default defineConfig({
     emptyOutDir: true,
     reportCompressedSize: true,
     commonjsOptions: {
-      transformMixedEsModules: true,
-    },
-  },
+      transformMixedEsModules: true
+    }
+  }
 });
