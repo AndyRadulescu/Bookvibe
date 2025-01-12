@@ -1,7 +1,7 @@
-export const catchError = <T>(promise: Promise<T>): Promise<[undefined, T] | [Error]> => {
+export const catchError = <T>(promise: Promise<T>): Promise<[undefined, T] | [Error | undefined, undefined]> => {
     return promise
         .then(data => [undefined, data] as [undefined, T])
         .catch((error) => {
-            return [error];
+            return [error] as [Error | undefined, undefined];
         });
 };
