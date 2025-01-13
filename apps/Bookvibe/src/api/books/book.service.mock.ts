@@ -1,4 +1,4 @@
-import {SearchVolumeListDto} from '../../model/books.ts';
+import {SearchVolumeListDto} from '@bookvibe/shared';
 
 const returnBook: SearchVolumeListDto = {
     kind: 'books#volumes',
