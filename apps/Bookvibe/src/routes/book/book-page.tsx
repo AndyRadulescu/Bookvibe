@@ -1,16 +1,17 @@
 import { useParams } from 'react-router-dom';
-import { useContext, useEffect, useMemo, useState } from 'react';
-import { bookTransportContext } from '../../api/books/transport.ts';
+import { useEffect, useMemo, useState } from 'react';
 import { SearchVolumeListDto } from '@bookvibe/shared';
 import { RatingComponent } from '../../components/rating.component.tsx';
+import { getBookByISBNMock } from '../../api/books/book.service.mock';
 
 export default function BookPage() {
   const { isbn } = useParams<{ isbn: string }>();
   const [book, setBook] = useState<SearchVolumeListDto | null>(null);
-  const bookTransport = useContext(bookTransportContext());
+  const bookTransport = getBookByISBNMock
+  throw getBookByISBNMock();
 
   useEffect(() => {
-    bookTransport(isbn).then(data => setBook(data));
+    bookTransport().then(data => setBook(data));
   }, [isbn]);
 
   const volumeInfo = useMemo(() => {

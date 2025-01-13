@@ -2,6 +2,8 @@ import {createBrowserRouter} from 'react-router-dom';
 import Root from './root';
 import ErrorPage from './error-page';
 import BookPage from './book/book-page.tsx';
+import { Loading } from '../components/loading.component';
+import { Suspense } from 'react';
 
 export const router = createBrowserRouter([
     {
@@ -11,6 +13,6 @@ export const router = createBrowserRouter([
     },
     {
         path: '/book/:isbn',
-        element: <BookPage/>,
+      element: <Suspense fallback={<Loading />}><BookPage/></Suspense>,
     },
 ]);

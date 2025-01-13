@@ -56,9 +56,10 @@ const returnBook: SearchVolumeListDto = {
 };
 
 export const getBookByISBNMock = (): Promise<SearchVolumeListDto> => {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(returnBook);
-        }, 5000);
+          // reject("stupid error");
+        }, 500);
     });
 };
