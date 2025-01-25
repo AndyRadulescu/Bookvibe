@@ -1,4 +1,5 @@
 import { ClientProxy, ClientProxyFactory, Transport } from '@nestjs/microservices';
+import { SearchVolumeListDto } from '@bookvibe/shared';
 
 export class RabbitMQService {
   private searchBook: ClientProxy;
@@ -24,10 +25,10 @@ export class RabbitMQService {
   }
 
   searchBooksByName(name: String) {
-    return this.searchBook.send('searchBooks', { book: name });
+    return this.searchBook.send<SearchVolumeListDto[]>('searchBooks', { book: name });
   }
 
   searchBookByIsbn(isbn: String) {
-    return this.isbn.send('isbn', { isbn: isbn });
+    return this.isbn.send<SearchVolumeListDto>('isbn', { isbn: isbn });
   }
 }
