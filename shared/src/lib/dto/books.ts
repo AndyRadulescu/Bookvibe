@@ -4,7 +4,7 @@ export interface SearchVolumeListDto {
     items: VolumeDto[];
 }
 
-interface VolumeDto {
+export interface VolumeDto {
     kind: string;
     id: string;
     etag: string;
@@ -40,7 +40,7 @@ export interface VolumeInfoDto {
     canonicalVolumeLink: string;
 }
 
-interface ImageLinks {
+export interface ImageLinks {
     smallThumbnail?: string;
     thumbnail?: string;
     small?: string;
@@ -49,12 +49,12 @@ interface ImageLinks {
     extraLarge?: string;
 }
 
-interface IndustryIdentifiersDto {
+export interface IndustryIdentifiersDto {
     type: string;
     identifier: string;
 }
 
-interface ReadingModesDto {
+export interface ReadingModesDto {
     text: boolean;
     image: boolean;
 }
@@ -65,7 +65,7 @@ interface BookDimensions {
     thickness?: string;
 }
 
-interface SaleInfoDto {
+export interface SaleInfoDto {
     country?: string;
     saleability?: string;
     isEbook?: boolean;

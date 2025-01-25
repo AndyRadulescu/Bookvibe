@@ -1,0 +1,15 @@
+.book-cover-width {
+  margin: auto;
+  @media only screen and (max-width: 48em) {
+    width: 15em;
+  }
+  @media only screen and (min-width: 48em) and (max-width: 64em) {
+    width: 80%;
+  }
+  @media only screen and (min-width: 64em) {
+    width: 60%;
+  }
+  @media only screen and (min-width: 96em) {
+    width: 50%;
+  }
+}
