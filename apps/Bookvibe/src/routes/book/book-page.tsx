@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react';
 import { SearchVolumeListDto } from '@bookvibe/shared';
-import { RatingComponent } from '../../components/rating.component.tsx';
+import { RatingComponent } from '../../components/rating/rating.component.tsx';
 import { getBookByISBNMock } from '../../api/books/book.service.mock';
 import { catchError } from '../../utils/utils';
 import { Loading } from '../../components/loading.component';
