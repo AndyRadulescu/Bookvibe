@@ -13,7 +13,7 @@ export interface VolumeDto {
     saleInfo: SaleInfoDto;
     userInfo?: UserInfo;
     accessInfo: AccessInfoDto;
-    searchInfo: SearchInfoDto;
+    searchInfo?: SearchInfoDto;
 }
 
 export interface VolumeInfoDto {

@@ -9,7 +9,7 @@ export class BooksController {
   }
 
   @Get('search/:name')
-  searchBooks(@Param() param: { bookName: string }): Observable<SearchVolumeListDto[]> {
+  searchBooks(@Param() param: { bookName: string }): Observable<SearchVolumeListDto> {
     return this.booksService.getBooksListByName(param.bookName);
   }
 

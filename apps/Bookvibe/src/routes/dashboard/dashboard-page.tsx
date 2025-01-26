@@ -11,8 +11,6 @@ export default function DashboardPage() {
     setSearchItem(searchItem)
   }
 
-  console.log(searchItem)
-
   return (
     <div className="container min-h-svh">
       <h1 className="text-3xl font-bold underline">Dashboard page</h1>

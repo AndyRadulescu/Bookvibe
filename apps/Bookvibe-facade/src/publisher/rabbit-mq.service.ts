@@ -25,7 +25,7 @@ export class RabbitMQService {
   }
 
   searchBooksByName(name: String) {
-    return this.searchBook.send<SearchVolumeListDto[]>('searchBooks', { book: name });
+    return this.searchBook.send<SearchVolumeListDto>('searchBooks', { book: name });
   }
 
   searchBookByIsbn(isbn: String) {

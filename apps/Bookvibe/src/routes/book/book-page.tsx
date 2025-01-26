@@ -15,7 +15,6 @@ export default function BookPage() {
 
   useEffect(() => {
     (async () => {
-      setIsLoading(true);
       const [err, book] = await catchError(bookTransport());
       setIsLoading(true);
       if (err) {
