@@ -1,11 +1,11 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react';
 import { SearchVolumeListDto } from '@bookvibe/shared';
-import { RatingComponent } from '../../components/rating/rating.component.tsx';
+import { RatingComponent } from './rating/rating.component.tsx';
 import { getBookByISBNMock } from '../../api/books/book.service.mock';
 import { catchError } from '../../utils/utils';
 import { Loading } from '../../components/loading.component';
-import BookCover from '../../components/book-cover/book-cover.component';
+import BookCover from './book-cover/book-cover.component';
 
 export default function BookPage() {
   const { isbn } = useParams<{ isbn: string }>();
