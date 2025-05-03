@@ -44,7 +44,13 @@ export default function BookPage() {
           <h1 className="text-5xl">{volumeInfo?.title}</h1>
           <h2 className="text-lg">{volumeInfo?.authors[0]}</h2>
           <RatingComponent averageRating={volumeInfo?.averageRating} />
-          <div>{JSON.stringify(volumeInfo)}</div>
+          <h2>{volumeInfo?.title}</h2>
+          <h2>{volumeInfo?.authors}</h2>
+          <h2>Genre: {volumeInfo?.categories}</h2>
+          <h2>Language: {volumeInfo?.language}</h2>
+          <h2>Pages: {volumeInfo?.pageCount}</h2>
+          <h2>published date: {volumeInfo?.publishedDate}</h2>
+          <p className="mt-4">{volumeInfo?.description}</p>
         </div>
       </div>
     </div>
