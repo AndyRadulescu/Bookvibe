@@ -6,16 +6,17 @@ import { getBookByISBNMock } from '../../api/books/book.service.mock';
 import { catchError } from '../../utils/utils';
 import { Loading } from '../../components/loading.component';
 import BookCover from './book-cover/book-cover.component';
+import { getBookByISBN } from '../../api/books/book.service';
 
 export default function BookPage() {
   const { isbn } = useParams<{ isbn: string }>();
   const [book, setBook] = useState<SearchVolumeListDto>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const bookTransport = getBookByISBNMock;
+  const bookTransport = getBookByISBN;
 
   useEffect(() => {
     (async () => {
-      const [err, book] = await catchError(bookTransport());
+      const [err, book] = await catchError(bookTransport(isbn));
       setIsLoading(true);
       if (err) {
         console.log(err);

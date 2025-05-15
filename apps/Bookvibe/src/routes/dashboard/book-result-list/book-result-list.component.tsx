@@ -6,13 +6,13 @@ import { catchError } from '../../../utils/utils';
 import { getBooksByName } from '../../../api/books/book.service';
 
 export function BookResultListComponent({ searchItem }: { searchItem: string }) {
-  console.log(searchItem);
   const [volumeList, setVolumeList] = useState<SearchVolumeListDto>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isEmpty, setIsEmpty] = useState<boolean>(true);
 
   useEffect(() => {
     (async () => {
+      if(!searchItem) return
       setIsEmpty(false);
       setIsLoading(true);
       const [err, book] = await catchError(getBooksByName(searchItem));
