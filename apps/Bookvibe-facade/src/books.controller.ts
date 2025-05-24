@@ -2,6 +2,7 @@ import { Controller, Get, Param } from '@nestjs/common';
 import { BooksService } from './books.service';
 import { Observable } from 'rxjs';
 import { SearchVolumeListDto } from '@bookvibe/shared';
+import { IsbnParam, NameParam } from './dto/validators';
 
 @Controller()
 export class BooksController {
@@ -9,13 +10,12 @@ export class BooksController {
   }
 
   @Get('search/:name')
-  searchBooks(@Param() param: { bookName: string }): Observable<SearchVolumeListDto[]> {
-    return this.booksService.getBooksListByName(param.bookName);
+  searchBooks(@Param() { name }: NameParam): Observable<SearchVolumeListDto> {
+    return this.booksService.getBooksListByName(name);
   }
 
-  // TODO: validation
   @Get('isbn/:isbn')
-  searchBookByIsbn(@Param() param: { isbn: string }): Observable<SearchVolumeListDto> {
-    return this.booksService.getBookByIsbn(param.isbn);
+  searchBookByIsbn(@Param() { isbn }: IsbnParam): Observable<SearchVolumeListDto> {
+    return this.booksService.getBookByIsbn(isbn);
   }
 }

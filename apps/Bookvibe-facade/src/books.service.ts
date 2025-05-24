@@ -9,7 +9,7 @@ export class BooksService {
   constructor(private publisherService: RabbitMQService) {
   }
 
-  getBooksListByName(name: string): Observable<SearchVolumeListDto[]> {
+  getBooksListByName(name: string): Observable<SearchVolumeListDto> {
     return this.publisherService.searchBooksByName(name);
   }
 

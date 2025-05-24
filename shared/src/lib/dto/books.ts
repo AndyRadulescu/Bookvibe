@@ -10,10 +10,10 @@ export interface VolumeDto {
     etag: string;
     selfLink: string;
     volumeInfo: VolumeInfoDto;
-    saleInfo: SaleInfoDto;
+    saleInfo?: SaleInfoDto;
     userInfo?: UserInfo;
     accessInfo: AccessInfoDto;
-    searchInfo: SearchInfoDto;
+    searchInfo?: SearchInfoDto;
 }
 
 export interface VolumeInfoDto {
@@ -21,7 +21,7 @@ export interface VolumeInfoDto {
     subtitle?: string;
     authors: string[];
     publisher?: string;
-    publishedDate: string;
+    publishedDate?: string;
     description?: string;
     industryIdentifiers: IndustryIdentifiersDto[];
     readingModes?: ReadingModesDto;
@@ -119,10 +119,10 @@ interface DownloadAccess {
 }
 
 interface SearchInfoDto {
-    textSnippet: string;
+    textSnippet?: string;
 }
 
 interface Price {
-    amount: number;
-    currency: number;
+    amount?: number;
+    currency?: number;
 }

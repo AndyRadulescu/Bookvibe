@@ -1,22 +1,22 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react';
 import { SearchVolumeListDto } from '@bookvibe/shared';
-import { RatingComponent } from '../../components/rating/rating.component.tsx';
+import { RatingComponent } from './rating/rating.component.tsx';
 import { getBookByISBNMock } from '../../api/books/book.service.mock';
 import { catchError } from '../../utils/utils';
 import { Loading } from '../../components/loading.component';
-import BookCover from '../../components/book-cover/book-cover.component';
+import BookCover from './book-cover/book-cover.component';
+import { getBookByISBN } from '../../api/books/book.service';
 
 export default function BookPage() {
   const { isbn } = useParams<{ isbn: string }>();
   const [book, setBook] = useState<SearchVolumeListDto>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const bookTransport = getBookByISBNMock;
+  const bookTransport = getBookByISBN;
 
   useEffect(() => {
     (async () => {
-      setIsLoading(true);
-      const [err, book] = await catchError(bookTransport());
+      const [err, book] = await catchError(bookTransport(isbn));
       setIsLoading(true);
       if (err) {
         console.log(err);
@@ -45,7 +45,13 @@ export default function BookPage() {
           <h1 className="text-5xl">{volumeInfo?.title}</h1>
           <h2 className="text-lg">{volumeInfo?.authors[0]}</h2>
           <RatingComponent averageRating={volumeInfo?.averageRating} />
-          <div>{JSON.stringify(volumeInfo)}</div>
+          <h2>{volumeInfo?.title}</h2>
+          <h2>{volumeInfo?.authors}</h2>
+          <h2>Genre: {volumeInfo?.categories}</h2>
+          <h2>Language: {volumeInfo?.language}</h2>
+          <h2>Pages: {volumeInfo?.pageCount}</h2>
+          <h2>published date: {volumeInfo?.publishedDate}</h2>
+          <p className="mt-4">{volumeInfo?.description}</p>
         </div>
       </div>
     </div>
