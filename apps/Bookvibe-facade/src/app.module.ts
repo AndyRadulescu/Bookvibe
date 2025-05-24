@@ -1,12 +1,8 @@
 import { Module } from '@nestjs/common';
-import { BooksController } from './books.controller';
-import { BooksService } from './books.service';
-import { RabbitMQService } from './publisher/rabbit-mq.service';
+import { BookSearchModule } from './v1/book-search/book-serach.module';
 
 @Module({
-  imports: [],
-  controllers: [BooksController],
-  providers: [BooksService, RabbitMQService],
+  imports: [BookSearchModule],
 })
 export class AppModule {
 }

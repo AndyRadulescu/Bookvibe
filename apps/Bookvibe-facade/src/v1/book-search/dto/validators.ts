@@ -1,8 +1,8 @@
 import { IsNotEmpty, IsNumberString, Length } from 'class-validator';
 
-export class IsbnParam {
+export class IdParam {
   @IsNotEmpty()
-  isbn: string;
+  id: string;
 }
 
 export class NameParam {
