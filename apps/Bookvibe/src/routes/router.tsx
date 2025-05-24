@@ -12,7 +12,7 @@ export const router = createBrowserRouter([
         errorElement: <ErrorPage/>,
     },
     {
-        path: '/book/:isbn',
+        path: '/book/:id',
       element: <Suspense fallback={<Loading />}><BookPage/></Suspense>,
     },
 ]);
