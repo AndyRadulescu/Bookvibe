@@ -1,19 +1,24 @@
 import { catchError } from '../../utils/utils.ts';
-import { SearchVolumeListDto } from '@bookvibe/shared';
+import { SearchVolumeListDto, VolumeDto } from '@bookvibe/shared';
 import axios from 'axios';
 
-export const getBookByISBN = async (isbn: string): Promise<SearchVolumeListDto> => {
+const ROOT = 'http://localhost:3000';
+const API = 'api';
+const BOOKS = 'books';
+const SEARCH = 'search';
+
+export const getBookById = async (id: string): Promise<SearchVolumeListDto> => {
   const [err, response] =
-    await catchError(axios.get<SearchVolumeListDto>(`http://localhost:3000/isbn/${isbn}`));
+    await catchError(axios.get<SearchVolumeListDto>(`${ROOT}/${API}/${BOOKS}/${id}`));
   if (err) {
     console.log(err);
   }
   return response?.data;
 };
 
-export const getBooksByName = async (name: string): Promise<SearchVolumeListDto> => {
+export const getBooksByName = async (name: string, page: number): Promise<SearchVolumeListDto> => {
   const [err, response] =
-    await catchError(axios.get<SearchVolumeListDto>(`http://localhost:3000/search/${name}`));
+    await catchError(axios.get<SearchVolumeListDto>(`${ROOT}/${API}/${BOOKS}/${SEARCH}&name=${name}&page=${page}`));
   if (err) {
     console.log(err);
   }

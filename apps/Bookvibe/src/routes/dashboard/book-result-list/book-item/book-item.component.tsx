@@ -1,13 +1,12 @@
 import { VolumeDto } from '@bookvibe/shared';
 import { Link } from 'react-router-dom';
-import { getISBNTypeFromIndustryIdentifier } from './isbn-manager';
 
-export function BookItemComponent({ volumeInfo }: VolumeDto) {
+export function BookItemComponent({ volumeInfo, id }: VolumeDto) {
   return (
-    <Link to={`book/${getISBNTypeFromIndustryIdentifier('ISBN_13', volumeInfo.industryIdentifiers)}`}>
+    <Link to={`book/${id}`}>
       <div className="p-4 border rounded-2xl shadow-md">
         <img
-          src={volumeInfo.imageLinks?.thumbnail}
+          src={volumeInfo?.imageLinks?.thumbnail}
           alt={volumeInfo.title}
           className="w-full h-48 object-cover rounded-lg mb-2"
         />

@@ -1,22 +1,22 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react';
-import { SearchVolumeListDto } from '@bookvibe/shared';
+import { SearchVolumeListDto, VolumeDto } from '@bookvibe/shared';
 import { RatingComponent } from './rating/rating.component.tsx';
 import { getBookByISBNMock } from '../../api/books/book.service.mock';
 import { catchError } from '../../utils/utils';
 import { Loading } from '../../components/loading.component';
 import BookCover from './book-cover/book-cover.component';
-import { getBookByISBN } from '../../api/books/book.service';
+import { getBookById } from '../../api/books/book.service';
 
 export default function BookPage() {
-  const { isbn } = useParams<{ isbn: string }>();
+  const { id } = useParams<{ id: string }>();
   const [book, setBook] = useState<SearchVolumeListDto>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const bookTransport = getBookByISBN;
+  const bookTransport = getBookById;
 
   useEffect(() => {
     (async () => {
-      const [err, book] = await catchError(bookTransport(isbn));
+      const [err, book] = await catchError(bookTransport(id));
       setIsLoading(true);
       if (err) {
         console.log(err);
@@ -25,7 +25,7 @@ export default function BookPage() {
       }
       setIsLoading(false);
     })();
-  }, [isbn]);
+  }, [id]);
 
   const volumeInfo = useMemo(() => {
     return book?.items[0].volumeInfo;
