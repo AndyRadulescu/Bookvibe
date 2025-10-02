@@ -10,6 +10,7 @@ import { getBookById } from '../../api/books/book.service';
 
 export default function BookPage() {
   const { id } = useParams<{ id: string }>();
+  console.log(id);
   const [book, setBook] = useState<SearchVolumeListDto>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const bookTransport = getBookById;
@@ -28,6 +29,7 @@ export default function BookPage() {
   }, [id]);
 
   const volumeInfo = useMemo(() => {
+    console.log(book);
     return book?.items[0].volumeInfo;
   }, [book]);
 
@@ -43,7 +45,7 @@ export default function BookPage() {
         </div>
         <div className="w-2/3 basis-full md:basis-auto">
           <h1 className="text-5xl">{volumeInfo?.title}</h1>
-          <h2 className="text-lg">{volumeInfo?.authors[0]}</h2>
+          <h2 className="text-lg">{volumeInfo?.authors?.[0]}</h2>
           <RatingComponent averageRating={volumeInfo?.averageRating} />
           <h2>{volumeInfo?.title}</h2>
           <h2>{volumeInfo?.authors}</h2>
