@@ -11,11 +11,13 @@ export class BookSearchController {
 
   @Get("/search")
   searchBooks(@Query() { name, page }: NamePageParam): Observable<SearchVolumeListDto> {
+    console.log(`Log call: /search ${name} ${page}`);
     return this.booksService.searchBooksByName(name, page ?? 1);
   }
 
-  @Get('/:id')
+  @Get('/search/:id')
   searchBookByIsbn(@Param() { id }: IdParam): Observable<SearchVolumeListDto> {
+    console.log(`Log call: /search/:id ${id}`);
     return this.booksService.searchBookById(id);
   }
 }
