@@ -16,7 +16,7 @@ export class BookSearchController {
   }
 
   @Get('/search/:id')
-  searchBookByIsbn(@Param() { id }: IdParam): Observable<SearchVolumeListDto> {
+  searchBookByIsbn(@Param() { id }: IdParam): Observable<VolumeDto> {
     console.log(`Log call: /search/:id ${id}`);
     return this.booksService.searchBookById(id);
   }

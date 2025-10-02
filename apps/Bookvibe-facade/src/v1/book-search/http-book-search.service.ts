@@ -17,9 +17,9 @@ export class HttpBookSearchService implements BookSearchProvider {
       .pipe(map(res => res.data));
   }
 
-  searchBookById(id: string): Observable<SearchVolumeListDto> {
+  searchBookById(id: string): Observable<VolumeDto> {
     return this.httpService
-      .get<SearchVolumeListDto>(`${ROOT}/${VOLUME}/${id}`)
+      .get<VolumeDto>(`${ROOT}/${VOLUME}/${id}`)
       .pipe(map(res => res.data));
   }
 }

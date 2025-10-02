@@ -7,9 +7,9 @@ const API = 'api';
 const BOOKS = 'books';
 const SEARCH = 'search';
 
-export const getBookById = async (id: string): Promise<SearchVolumeListDto> => {
+export const getBookById = async (id: string): Promise<VolumeDto> => {
   const [err, response] =
-    await catchError(axios.get<SearchVolumeListDto>(`${ROOT}/${API}/${BOOKS}/${SEARCH}/${id}`));
+    await catchError(axios.get<VolumeDto>(`${ROOT}/${API}/${BOOKS}/${SEARCH}/${id}`));
   if (err) {
     console.log(err);
   }

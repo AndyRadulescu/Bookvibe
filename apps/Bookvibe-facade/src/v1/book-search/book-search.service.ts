@@ -9,7 +9,7 @@ export class BookSearchService {
   constructor(@Inject(BOOK_SEARCH_PROVIDER) private searchProvider: BookSearchProvider) {
   }
 
-  searchBookById(id: string): Observable<SearchVolumeListDto> {
+  searchBookById(id: string): Observable<VolumeDto> {
     return this.searchProvider.searchBookById(id);
   }
 

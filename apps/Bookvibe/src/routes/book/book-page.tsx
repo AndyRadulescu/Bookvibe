@@ -11,7 +11,7 @@ import { getBookById } from '../../api/books/book.service';
 export default function BookPage() {
   const { id } = useParams<{ id: string }>();
   console.log(id);
-  const [book, setBook] = useState<SearchVolumeListDto>();
+  const [book, setBook] = useState<VolumeDto>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const bookTransport = getBookById;
 
@@ -30,7 +30,7 @@ export default function BookPage() {
 
   const volumeInfo = useMemo(() => {
     console.log(book);
-    return book?.items[0].volumeInfo;
+    return book?.volumeInfo;
   }, [book]);
 
   if (isLoading) {
