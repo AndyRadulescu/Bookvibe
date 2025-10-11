@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { useState } from 'react';
 import { BookResultListComponent } from './book-result-list/book-result-list.component';

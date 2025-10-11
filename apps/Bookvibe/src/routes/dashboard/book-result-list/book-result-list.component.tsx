@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import { VolumeDto } from '@bookvibe/shared';
+import { BookVibeVolumeDto } from '@bookvibe/shared';
 import { Loading } from '../../../components/loading.component';
 import { BookItemComponent } from './book-item/book-item.component';
 import { catchError } from '../../../utils/utils';
 import { getBooksByName } from '../../../api/books/book.service';
 
 export function BookResultListComponent({ searchItem }: { searchItem: string }) {
-  const [volumes, setVolumes] = useState<VolumeDto[]>();
+  const [volumes, setVolumes] = useState<BookVibeVolumeDto[]>();
   const [page, setPage] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isEmpty, setIsEmpty] = useState<boolean>(true);
@@ -20,8 +20,8 @@ export function BookResultListComponent({ searchItem }: { searchItem: string }) 
       if (err) {
         console.log(err);
       } else {
-        if (books?.items && books.items.length > 0) {
-          const newList = volumes ? volumes.concat(books.items) : books.items;
+        if (books && books.length > 0) {
+          const newList = volumes ? volumes.concat(books) : books;
           setVolumes(newList);
         }
       }
