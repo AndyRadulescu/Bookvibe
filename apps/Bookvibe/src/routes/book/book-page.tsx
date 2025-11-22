@@ -10,14 +10,15 @@ import { BookVibeVolumeDto } from '@bookvibe/shared';
 
 export default function BookPage() {
   const { id } = useParams<{ id: string }>();
-  const [book, setBook] = useState<BookVibeVolumeDto>();
+  const [book, setBook] = useState<BookVibeVolumeDto | undefined>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const bookTransport = getBookById;
 
   useEffect(() => {
     (async () => {
-      const [err, book] = await catchError(bookTransport(id));
       setIsLoading(true);
+      const [err, book] = await catchError(bookTransport(id));
+
       if (err) {
         console.log(err);
       } else {

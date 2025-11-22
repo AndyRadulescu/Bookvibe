@@ -38,7 +38,6 @@ export function BookResultListComponent({ searchItem }: { searchItem: string }) 
   const increasePage = () => {
     setPage(page + 1);
   };
-  console.log(volumes);
   return (
     <>
       <div className="flex justify-center">

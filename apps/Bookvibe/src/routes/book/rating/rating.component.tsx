@@ -8,7 +8,7 @@ export function RatingComponent(props: { averageRating?: number }) {
   }, [props]);
   return (
     <div className="flex">
-      {stars.map((star, i) => <div key={i} className="p-2 w-[3em]">
+      {stars.map((star, i) => <div key={i} className="p-1 w-[3em]">
         <StartComponent star={star} />
       </div>)}
     </div>
