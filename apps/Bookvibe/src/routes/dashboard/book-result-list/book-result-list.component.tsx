@@ -38,12 +38,13 @@ export function BookResultListComponent({ searchItem }: { searchItem: string }) 
   const increasePage = () => {
     setPage(page + 1);
   };
+  console.log(volumes);
   return (
     <>
       <div className="flex justify-center">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {volumes?.map((book) => (
-            <BookItemComponent key={book.id} {...book} />
+            <BookItemComponent key={book.id} volumeInfo={book} />
           ))}
         </div>
       </div>

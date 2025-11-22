@@ -1,9 +1,11 @@
 import { BookVibeVolumeDto } from '@bookvibe/shared';
 import { Link } from 'react-router-dom';
 
-export function BookItemComponent({ volumeInfo, id }: BookVibeVolumeDto) {
+
+export function BookItemComponent({ volumeInfo }: { volumeInfo: BookVibeVolumeDto }) {
+  console.log(volumeInfo);
   return (
-    <Link to={`book/${id}`}>
+    <Link to={`book/${volumeInfo.id}`}>
       <div className="p-4 border rounded-2xl shadow-md">
         <img
           src={volumeInfo?.imageLink}
